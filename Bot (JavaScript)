@@ -1,0 +1,93 @@
+
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const keepAlive = require("./server")
+require('events').EventEmitter.defaultMaxListeners = 25;
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', msg => {
+  if (msg.content === '$meme') {
+    msg.reply('SORRY BUDDY :/');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '$fuck you') {
+    msg.reply('No, fuck you');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === 'Fuck') {
+    msg.reply('HEY, WATCH THAT LANGUAGE');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === 'fuck') {
+    msg.reply('HEY, WATCH THAT LANGUAGE');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === 'Shit') {
+    msg.reply('HEY, WATCH THAT LANGUAGE');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === 'shit') {
+    msg.reply('HEY, WATCH THAT LANGUAGE');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '$dark joke') {
+    msg.reply('My Ex got hit by a bus today. Unfortunately I also lost my job as a bus driver...');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '$rock') {
+    msg.reply('https://open.spotify.com/playlist/1q38pb2HAy92WZC8XOpstN');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '$help') {
+    msg.reply('What do you need help with? $music, $funny,? If that does not answer your question then contact the owner of the server or message @God_Of_Order#6387');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '$music') {
+    msg.reply('$rock, $country, $pop?');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '$country') {
+    msg.reply('https://open.spotify.com/playlist/0NnfMzdnMnH6WvhsbpkB3g?si=630868b115da478d');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '$owner') {
+    msg.reply('@God_Of_Order#6387');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '$say hi bot') {
+    msg.reply('Hey, everyone');
+  }
+});
+client.on('message', message => {
+  if (message.content === '$avatar') {
+    message.reply(message.author.displayAvatarURL());
+  }
+});
+client.on('guildMemberAdd', member => {
+  const channel = member.guild.channels.cache.find(ch => ch.name === 'announcements');
+  if (!channel) return;
+  channel.send(`Welcome to the server, ${member}`);
+});
+client.on('message', msg => {
+  if (msg.content === '$pop') {
+    msg.reply('https://open.spotify.com/playlist/2nE5FpLGKOfdgIoJt6rW5R?si=b818eeda22bb486a');
+  }
+});
+
+keepAlive() 
+client.login(process.env.DISCORD_TOKEN);
